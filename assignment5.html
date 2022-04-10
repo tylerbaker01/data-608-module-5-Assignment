@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<!--
+	Note to professor:
+		I cannot figure out what I am doing wrong with part 2. I feel like it should be generating a table. However, it doesn't appear to be generate anything.
+<head><title>Assignment 5</title></head>
+<body>
+	<h1>Assignment 5</h2>
+	<h2>Tyler Baker</h2>
+
+
+	<p>Your assignment should be in the form of an HTML page, which I will be able to run locally.
+Refer to the file 'js_in_webpage.html' on the github page for instructions on setting up
+javascript to run on an HTML page, and how to run/debug.
+You should complete both of these in 2 (or more) functions on one HTML page
+Create a function to reverse any word that you type in. This can be typed into either an input
+box or an alert box, and then print the result in a box or on the webpage.
+Create a function that takes an input number, and prints a table with the first 20 multiples of
+the number, in order 5x4.</p>
+
+
+	<h3>Part 1</h3>
+<script type="text/javascript">
+
+document.write('<br><p>Reversing a string.')
+// Reverse Function
+
+function reverse(str){
+	let stringRev ="";
+	for(let i=0; i<str.length; i++){
+		stringRev = str[i]+stringRev;
+	}
+	return stringRev;
+};
+function revCall(){
+	var t = document.getElementById("target");
+	t.innerHTML = reverse(document.getElementById('str').value);
+}
+
+</script>
+<p>
+<form>
+	<input id="str" type="string">
+	<input type="button" value="reverse" onClick="revCall();">
+</form>
+</p>
+
+<div id="target"></div>
+<script type="text/javascript" src="other_script.js"></script>
+<script type="text/javascript"> document.write(myScript());</script>
+
+<h3>Part 2</h3>
+<script type="text/javascript">
+document.write('<br><p>Table of Multiples')
+function genTable(num){
+	var array = [num*1,num*2,num*3,num*4,num*5,num*6,num*7,num*8,num*9,num*10,num*11,num*12,num*13,num*14,num*15,num*16,num*17,num*18,num*19,num*20];
+	var result ='<table>'
+	result += '<tr>'
+	for(var j=0; j<array.length; j++) {
+		result += '<td>' + array[j] + '</td>';
+		if((j+1)%4==0) {
+			result += '</tr><tr>';
+		}
+	}
+	result +="</tr>";
+	result +="</table>";
+	document.body.innerHTML=result;
+	return result;
+}
+
+function printTable(){
+	var t = document.getElementById("target");
+	t.innerHTML = table(document.getElementById('num').value);
+}
+</script>
+<p>
+<form>
+	<input id="num", type="number">
+	<input type="button" value="generate table" onClick="printTable();">
+</form>
+</p>
+<div id="target"></div>
+
+<script type="text/javascript" src="other_script.js"></script>
+<script type="text/javascript"> document.write(myScript());</script>
+
+
+</body>
+</html>
